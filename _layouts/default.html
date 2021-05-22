@@ -13,7 +13,7 @@
     {% include head.html %}
     {% include head/custom.html %}
     {% if page.use_math %}
-      {% include Mathjax.html %}
+      {% include mathjax_support.html %}
     {% endif %}
   </head>
 
@@ -40,6 +40,7 @@
     </div>
 
     {% include scripts.html %}
+    {% include Mathjax.html %}
 
   </body>
 </html>
