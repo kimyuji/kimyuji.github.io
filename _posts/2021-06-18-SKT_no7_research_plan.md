@@ -28,22 +28,21 @@ use_math: true
 
 
 
+
 # 연구 목표
 
 저희의 연구 목표는 다음과 같습니다.
 
 ### 1. **Robust**
 카메라 위치 추정 기술에 사용되는 데이터는 2D 특징점과 3D 특징점이 Mismatch된 Outlier가 굉장히 많습니다. Outlier에 대응할 수 있는 **Iteratively Re-Weighted Least Square**을 이용하여 **Robust**한 모델을 개발하는 것이 목표입니다.
-
 ### 2. Real-Time
 스마트폰 카메라를 통해 들어오는 실시간 이미지를 처리하기 위해 **Real-time** 처리가 필수입니다.
 실시간 데이터를 최대한 빠르게 처리할 수 있는 **Low Complexity** 모델을 개발하는 것이 목표입니다.
-
 ### 3. Hybrid
 Camera Pose Estimation의 Classical Algorithm인 PnP를 Develop하고**,** 이를 딥러닝 네트워크와 결합하여 두 기술의 장점을 모두 활용한 **Hybrid Model**을 개발 하는 것이 목표입니다. 
-
 ### 4. End-to-End
 위에서 언급한 3가지 목표를 달성할 수 있으면서 튜닝 및 사용자의 개입 없이 한번에 처리하는 **End-to-End** 모델을 개발하는 것이 목표입니다.
+
 
 
 
@@ -51,8 +50,8 @@ Camera Pose Estimation의 Classical Algorithm인 PnP를 Develop하고**,** 이�
 ![Untitled 2](https://user-images.githubusercontent.com/68378932/122576297-82007900-d08c-11eb-9796-a923492356dc.png)
 
 카메라 위치/방향 추정 기술의 메인 모델은 PnP-Net입니다. PnP-Net은 딥러닝과 PnP solver을 결합한 hybrid model입니다. fully connected layer로 이루어진 네트워크를 통해 위치와 방향에 대한 대략적인 예측을 하고, 이는 PnP solver의 initialization 값이 됩니다. IRLS-LM 방법을 활용한 PnP solver의 반복을 통해, PnP-Net은 정확한 위치/방향을 반환합니다. 
-
  PnP-Net으로 matching된 2D-3D 특징점을 통해 카메라의 pose를 추정할 예정이며, PnP-Net에 연산량을 더 줄일 수 있는 다양한 방법(conv1d의 활용, fully connected layer의 추가 등)을 시도하여 연구목표에 맞는 모델을 개발할 예정입니다. 
+
 
 
 # SpineNet : Mask R-CNN
@@ -62,8 +61,8 @@ Camera Pose Estimation의 Classical Algorithm인 PnP를 Develop하고**,** 이�
 
 
 
-# 기대효과
 
+# 기대효과
 - 전망성
 
   실시간으로 들어오는 이미지를 안정적으로 처리하면서 신뢰성 있는 위치 정보를 제공할 수 있을 것입니다. 또한, 이동 물체에 대한 위치가 추정될 경우, 이를 실내 도보 네비게이션, 위치 공유, Smart Building/Factory, 로봇/드론, 대면적 AR 서비스 등 산업 전반에 활용되어 위치추정 task의 범용성을 높일 수 있습니다. 
