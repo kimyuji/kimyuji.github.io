@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[SKT AI Fellowship] 7번 연구 과제 계획"
+title: "[SKT AI Fellowship] ASAP 7번 연구 과제 계획"
 subtitle: "[Tips]"
 date: 2021-06-18 23:00
 tag: [Pytorch, VSCode, Github, PnP, Camera_Pose_Estimation, ]
