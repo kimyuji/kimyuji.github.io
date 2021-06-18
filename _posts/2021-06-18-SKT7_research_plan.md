@@ -13,9 +13,7 @@ use_math: true
 ### 카메라 위치/방향 추정 기술
 
 해당 연구는 스마트폰을 통해 실시간으로 들어오는 2D 이미지와 Visual Geo-DB를 사용하여 **스마트폰 카메라의 위치/방향 추정 기술을 개발**하는 것 입니다. 스마트폰 카메라로 주변을 촬영하면 사용자의 정확한 위치를 알려주는 기술로, 요즘 주목 받고 있는 자율주행 자동차 및 metaverse와 같은 서비스의 대중화에 큰 역할을 할 수 있습니다. 
-
 ![Untitled](https://user-images.githubusercontent.com/68378932/122576304-82990f80-d08c-11eb-9518-ae4cb6c9ebae.png)
-
 스마트폰으로 촬영한 이미지를 기존 DB와 비교하는 과정을 거쳐 스마트폰의 pose를 추정하는 기술로 **PnP-Net**을 활용할 예정입니다. 
 
 위와 같은 단계를 거쳐 최종 output인 카메라의 pose를 반환할 예정이며, 이를 통해 사용자의 정확한 위치를 파악할 수 있습니다. 
@@ -23,10 +21,7 @@ use_math: true
 
 
 ### 광고판/간판 검출 기술
-
-
 ![Untitled 1](https://user-images.githubusercontent.com/68378932/122576289-8036b580-d08c-11eb-9023-b9393fb37a11.png)
-
 간판과 같이 실제 사회에는 위치 추정 기술의 성능을 저하시키는 요소들이 분포되어 있습니다. 이러한 방해 요소를 제거하는 것은 pose estimation에서 중요한 처리 과정이라고 할 수 있습니다.  해당 연구는 실내/외 2D 이미지에서 광고판/간판과 같은 성능 저하 요소를 detection 및 segmentation하여 처리할 예정입니다. 저희는 **SpineNet을 backbone으로 한 Mask R-CNN** 모델을 사용하여 실생활 이미지 내 방해요소를 올바르게 검출하고, 이를 통해 알고리즘의 성능 향상을 이끌어낼 수 있습니다. 
 
 
@@ -56,15 +51,14 @@ Camera Pose Estimation의 Classical Algorithm인 PnP를 Develop하고**,** 이�
 
 
 ## PnP-Net
-
 ![Untitled 2](https://user-images.githubusercontent.com/68378932/122576297-82007900-d08c-11eb-9796-a923492356dc.png)
+카메라 위치/방향 추정 기술의 메인 모델은 PnP-Net입니다. PnP-Net은 딥러닝과 PnP solver을 결합한 hybrid model입니다. fully connected layer로 이루어진 네트워크를 통해 위치와 방향에 대한 대략적인 예측을 하고, 이는 PnP solver의 initialization 값이 됩니다. IRLS-LM 방법을 활용한 PnP solver의 반복을 통해, PnP-Net은 정확한 위치/방향을 반환합니다. 
 
+ PnP-Net으로 matching된 2D-3D 특징점을 통해 카메라의 pose를 추정할 예정이며, PnP-Net에 연산량을 더 줄일 수 있는 다양한 방법(conv1d의 활용, fully connected layer의 추가 등)을 시도하여 연구목표에 맞는 모델을 개발할 예정입니다. 
 
 
 ## SpineNet : Mask R-CNN
-
 ![Untitled 3](https://user-images.githubusercontent.com/68378932/122576301-82007900-d08c-11eb-92db-c10165648f37.png)
-
 광고판/감판 검출 모델로 대표적인 instance segmentation 모델인 Mask-R-CNN 모델을 활용할 예정입니다. SpineNet(Scale-Permuted Model)을 모델의 backbone으로 변경할 예정이며, SpineNet의 모델 구조상 각 block마다 scale level 및 block type을 변경할 수 있어 recognition 및 localization에 적합합니다.  
 
 
