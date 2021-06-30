@@ -4,6 +4,7 @@ title: "[SKT AI Fellowship] ASAP 7번 연구 과제 계획"
 date: 2021-06-18 23:00
 tag: [Pytorch, VSCode, Github, PnP, Camera_Pose_Estimation, ]
 use_math: true
+published: false
 ---
 
 
